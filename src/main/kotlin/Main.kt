@@ -1,9 +1,26 @@
+import java.util.*
+
 fun main() {
     val intArray: Array<Int> = arrayOf(6,9,24)
     println(problem1(intArray))
 
     val charArray: Array<Char> = arrayOf('a','b','c','e')
     println(problem2(charArray))
+
+    val jenny: LinkedList<Char> = LinkedList<Char>()
+    jenny.add('A')
+    jenny.add('C')
+    jenny.add('A')
+
+    val stephanie: LinkedList<Char> = LinkedList<Char>()
+    stephanie.add('B')
+    stephanie.add('C')
+    stephanie.add('F')
+
+    val rachel: LinkedList<Char> = problem3(jenny,stephanie)
+    for((i, index) in rachel.withIndex()){
+        println("$index <-> $i")
+    }
 }
 
 // Given an integer array of size N, compute the sum of all even numbers in this array
@@ -42,3 +59,26 @@ fun problem2(charArray: Array<Char>) : String{
     }
     return "Not a single letter of the alphabet is missing in this array!"
 }
+
+// Jenny and Stephanie are friends. Both of them like letters, especially uppercase ones.
+// They are cutting uppercase letters from newspapers, and each one of them has his collection of letters stored in a stack.
+// One sunny day, Rachel visited Jenny and Stephanie. She saw their collections. She wondered what is the lexicographically minimal string made of those two collections. She can take a letter from a collection only when it is on the top of the stack. Rachel wants to use all the letters in their collections.
+// As an example, assume Jenny has collected a = [A, C, A] and Stephanie has b = [B, C, F]. The example shows the top at index 0 for each stack of letters. Assemble the string as follows:
+fun problem3(jenny: LinkedList<Char>, stephanie: LinkedList<Char>) : LinkedList<Char>{
+    val rachel: LinkedList<Char> = LinkedList<Char>()
+    while(!jenny.isEmpty() || !stephanie.isEmpty()){
+        if(!jenny.isEmpty() && !stephanie.isEmpty()){//if jenny and stephanie are not empty
+            if(jenny[0].code <= stephanie[0].code) {
+                rachel.add(jenny.pop())
+            } else if (stephanie[0].code <= jenny[0].code) {
+                rachel.add(stephanie.pop())
+            }
+        } else if(!jenny.isEmpty() && stephanie.isEmpty()){ //if jenny isn't empty but stephanie is
+            rachel.add(jenny.pop())
+        } else if(jenny.isEmpty() && !stephanie.isEmpty()){ //if stephanie isn't empty but jenny is
+            rachel.add(stephanie.pop())
+        }
+    }
+    return rachel
+}
+//Done...
