@@ -76,5 +76,26 @@ class Test {
 
     //---------------------------------------------------------------------------------------------------------------
 
+    @org.junit.jupiter.api.Test
+    internal fun testProblem3_Testcase_DefaultTest() {
+        val jenny: LinkedList<Char> = LinkedList<Char>()
+        jenny.add('A')
+        jenny.add('C')
+        jenny.add('A')
 
+        val stephanie: LinkedList<Char> = LinkedList<Char>()
+        stephanie.add('B')
+        stephanie.add('C')
+        stephanie.add('F')
+
+        val expected: LinkedList<Char> = LinkedList<Char>()
+        expected.add('A')
+        expected.add('B')
+        expected.add('C')
+        expected.add('A')
+        expected.add('C')
+        expected.add('F')
+        val rachel: LinkedList<Char> = problem3(jenny,stephanie)
+        Assertions.assertEquals(expected,rachel)
+    }
 }
