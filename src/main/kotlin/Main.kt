@@ -1,7 +1,14 @@
-fun main(args: Array<String>) {
-    println("Hello World!")
+fun main() {
+    val intArray: Array<Int> = arrayOf(6,9,24)
+    println(problem1(intArray))
+}
 
-    // Try adding program arguments via Run/Debug configuration.
-    // Learn more about running applications: https://www.jetbrains.com/help/idea/running-applications.html.
-    println("Program arguments: ${args.joinToString()}")
+// Given an integer array of size N, compute the sum of all even numbers in this array
+fun problem1(intArray: Array<Int>) : Int {
+    var sum = 0
+    for(index in intArray) {
+        if(index % 2 == 0)
+            sum += index
+    }
+    return sum
 }
