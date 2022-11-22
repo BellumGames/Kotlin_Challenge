@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c71207fa-bab1-4294-b31a-26c0257d3de7" name="Changes" comment="Problem 2 was resolved!">
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/Main.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Main.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/kotlin/Test.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/kotlin/Test.kt" afterDir="false" />
-    </list>
+    <list default="true" id="c71207fa-bab1-4294-b31a-26c0257d3de7" name="Changes" comment="Problem 3 was resolved!" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -108,7 +105,14 @@
       <option name="project" value="LOCAL" />
       <updated>1668608451412</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Problem 3 was resolved!">
+      <created>1668608768540</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1668608768540</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -126,6 +130,7 @@
     <MESSAGE value="Startup Kotlin Project" />
     <MESSAGE value="Problem 1 was resolved!" />
     <MESSAGE value="Problem 2 was resolved!" />
-    <option name="LAST_COMMIT_MESSAGE" value="Problem 2 was resolved!" />
+    <MESSAGE value="Problem 3 was resolved!" />
+    <option name="LAST_COMMIT_MESSAGE" value="Problem 3 was resolved!" />
   </component>
 </project>
