@@ -4,6 +4,9 @@ fun main() {
 
     val charArray: Array<Char> = arrayOf('a','b','c','e')
     println(problem2(charArray))
+
+    val charList: List<Char> = listOf('a','b','c','e')
+    println(problem2(charList))
 }
 
 // Given an integer array of size N, compute the sum of all even numbers in this array
@@ -22,22 +25,55 @@ fun problem1(intArray: Array<Int>) : Int {
 fun problem2(charArray: Array<Char>) : String{
     if(charArray.size < 2)
         return "Dude, your array is too short try something longer :)"
-    var upperCaseOn = true
-    if(charArray[0].code in 97..122)
-        upperCaseOn = false
-    else if(charArray[0].code in 65..90)
-        upperCaseOn = true
-    for(i in 1 until charArray.size) {
+    val rangeOfUpper: IntRange = 65..90
+    val rangeOfLower: IntRange = 97..122
+    val upperCaseOn: Boolean = when (charArray[0].code)
+    {
+        in rangeOfUpper -> true
+        in rangeOfLower -> false
+        else -> false
+    }
+    for(i in 1 until charArray.size)
+    {
         val previous:Int = charArray[i - 1].code
         val current:Int = charArray[i].code
-        if(current - previous != 1){
-            if(upperCaseOn)
-                if(previous > current)
-                    return "Letter " + (previous + 1).toChar().toString() + " is missing!"
-            if(!upperCaseOn)
-                if(previous < current)
-                    return "Letter " + (previous + 1).toChar().toString() + " is missing!"
-            return "Different cases detected!"
+        when
+        {
+            current - previous != 1 -> return when
+            {
+                upperCaseOn and (previous > current) -> "Letter " + (previous + 1).toChar().toString() + " is missing!"
+                !upperCaseOn and (previous < current) -> "Letter " + (previous + 1).toChar().toString() + " is missing!"
+                else -> "Different cases detected!"
+            }
+        }
+    }
+    return "Not a single letter of the alphabet is missing in this array!"
+}
+
+fun problem2(charList: List<Char>) : String
+{
+    if(charList.size < 2)
+        return "Dude, your array is too short try something longer :)"
+    val rangeOfUpper: IntRange = 65..90
+    val rangeOfLower: IntRange = 97..122
+    val upperCaseOn: Boolean = when (charList[0].code)
+    {
+        in rangeOfUpper -> true
+        in rangeOfLower -> false
+        else -> false
+    }
+    for(i in 1 until charList.size)
+    {
+        val previous:Int = charList[i - 1].code
+        val current:Int = charList[i].code
+        when
+        {
+            current - previous != 1 -> return when
+            {
+                upperCaseOn and (previous > current) -> "Letter " + (previous + 1).toChar().toString() + " is missing!"
+                !upperCaseOn and (previous < current) -> "Letter " + (previous + 1).toChar().toString() + " is missing!"
+                else -> "Different cases detected!"
+            }
         }
     }
     return "Not a single letter of the alphabet is missing in this array!"
